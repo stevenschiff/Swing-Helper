@@ -16,12 +16,17 @@ To use this library to all you need to do is create a Canvas object and specify 
 ```
 Canvas canvas = new Canvas(500,500); //create a canvas to draw on
 int x = 50;
-while(true){ //game loop
-    canvas.drawColor(Color.BLUE); //change draw color to blue
-    canvas.drawOval(x,50,20,20,true); draw an oval at (x,50) with height and width of 20 and fill it in with a solid color
+while(true){ 
+//game loop
+    canvas.drawColor(Color.BLUE); 
+    //change draw color to blue
+    canvas.drawOval(x,50,20,20,true); 
+    //draw an oval at (x,50) with height and width of 20 and fill it in with a solid color
     x++;
-    canvas.repaint(); // draw everything on the canvas that you specified in your code
-    canvas.addDelay(5); //  add a short 5 ms delay
+    canvas.repaint(); 
+    //draw everything on the canvas that you specified in your code
+    canvas.addDelay(5);
+    //add a short 5 ms delay
 }
 ```
 ## **How does this Canvas file work?**
