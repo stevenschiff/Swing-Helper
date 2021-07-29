@@ -7,6 +7,7 @@ You can download the entire project and build it into a jar file, and then impor
 OR
 
 You can just download the included jar file.
+Jar location is : Swing-Helper/Swing-Helper/out/artifacts/SwingHelper_jar/
 
 You should use the following import statement in your project: import clara.Canvas;
 
