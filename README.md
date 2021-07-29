@@ -9,3 +9,7 @@ OR
 You can just download the included jar file.
 
 You should use the following import statement in your project: import clara.Canvas;
+
+## **How to contribute**
+This code base can certainly be optimized, and more features can be added.  Feel free to make changes or improvements.  Please rebuild the jar file when you make changes, so any teachers or students that download the project have access to it.  Keep in mind that this project is intended for use by students, so please make sure it is easy and straight forward to use.
+
