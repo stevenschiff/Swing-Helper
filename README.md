@@ -28,9 +28,10 @@ while(true){ //game loop
 
 The Canvas file is used to create DrawObjects which can contain information about ovals, rectangles, images, or other items you may want to draw on the canvas.  You can also change the color or rotation when you draw and item to the canvas via a DrawObject as well.  
 The main idea is that when you create a Canvas in the runner class you can call methods that appear to draw ovals or rectangles on the screen.  What actually happens is the DrawObject is created and it is added to a queue.  When you call the repaint method all of the DrawObjects are visited in the same sequence that you added them, and they are drawn on the screen. Rotation objects are dealt with the same way.  They are added to the queue and the commands are executed in sequence when the screen is repainted.  There is one small exception here.  When each of the rotation commands is executed they rotate the canvas, and the command is also added to a stack.
+
 The reset method can be used to take all of the rotation commands that have been run and reverse them via the stack.  This only needs to be done if you want to reset the rotation before you repaint the screen.  After you repaint the screen the rotations will all be lost and everything will revert to the original rotation.  The natural functionality of the stack will allow these commands to be run in the reverse order that they were entered which is needed since the rotations will all compound on top of each other. 
 
 
 ## **How to contribute**
-This code base can certainly be optimized, and more features can be added.  Feel free to make changes or improvements.  Please rebuild the jar file when you make changes, so any teachers or students that download the project have access to it.  Keep in mind that this project is intended for use by students, so please make sure it is easy and straight forward to use.
+This code base can certainly be optimized, and more features can be added.  Feel free to make changes or improvements.  Please rebuild the jar file when you make changes, so any teachers or students that download the project have access to it.  Keep in mind that this project is intended for use by students, so please make sure it is easy and straight forward to use.  Please do not change the package structure or dedication :)
 
