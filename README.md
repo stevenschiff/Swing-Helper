@@ -39,7 +39,7 @@ The reset method can be used to take all of the rotation commands that have been
 ## **Method Descriptions**
 
 
-### **public void drawOval(int x,int y,int width,int height, boolean fill)**
+**public void drawOval(int x,int y,int width,int height, boolean fill)**
 
 Adds an oval to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
 
@@ -51,7 +51,7 @@ height – height of the oval<br />
 fill – determines if the oval will be filled with the current specified color<br />
 
 
-### **public void drawRect(int x,int y,int width,int height, boolean fill)**
+**public void drawRect(int x,int y,int width,int height, boolean fill)**
 
 Adds a rectangle to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
 
@@ -63,7 +63,7 @@ height – height of the rectangle<br />
 fill – determines if the rectangle will be filled with the current specified color<br />
 
 
-### **public void drawText(String text, int x, int y)**
+**public void drawText(String text, int x, int y)**
 
 Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
 
@@ -74,7 +74,7 @@ y – y position of the rectangle<br />
 
 
 
-### **public void drawColor(Color color)**
+**public void drawColor(Color color)**
 
 Adds an object to the queue that will change the color of all graphics  ahics drawn to the screen.
 
@@ -83,7 +83,7 @@ color - the new color to be used for all objects to be drawn<br />
 
 
 
-### **public void rotate(double rotation, int x, int y)**
+**public void rotate(double rotation, int x, int y)**
 
 Adds a rotation object to the queue. Rotates the entire screen by the specified amount around the given pivot point.  This rotation will hold until repaint is called or the user rotates it back to the original orientation.  
 
@@ -94,7 +94,7 @@ y - y pivot location<br />
 
 
 
-### **public String returnKey()**
+**public String returnKey()**
 
 Returns the key pressed for the current frame being drawn on the screen.
 
@@ -106,7 +106,7 @@ A string that represents the key pressed
 
 
 
-### **public void reset()**
+**public void reset()**
 
 Clears out all drawing and rotational information.  This will not need to be called after repaint.
 
