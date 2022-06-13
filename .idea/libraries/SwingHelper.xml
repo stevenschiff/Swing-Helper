@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SwingHelper">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Swing-Helper/out/artifacts/SwingHelper_jar/SwingHelper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

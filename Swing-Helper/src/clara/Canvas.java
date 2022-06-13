@@ -3,6 +3,7 @@
 package clara;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -12,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
 import javax.imageio.ImageIO;
@@ -24,12 +26,15 @@ public class Canvas extends JPanel implements KeyListener {
     Queue<DrawObject> queue;
     Stack<RotationObject> stack;
     private  String key="";
+    private HashMap<String,BufferedImage> imageMap;
 
 
     public Canvas(int xSize,int ySize){
         super(true);
+        System.out.println("Hi");
         queue=new LinkedList<>();
         stack=new Stack<>();
+        imageMap= new HashMap<String,BufferedImage> ();
         setFocusable(true);
         JFrame frame = new JFrame("Canvas");
         frame.setSize(xSize, ySize);
@@ -90,6 +95,7 @@ public class Canvas extends JPanel implements KeyListener {
 
                 //Change the text
                 if (nextDrawableObject instanceof DrawText){
+					graphics2D.setFont( ((DrawText)nextDrawableObject).returnFont() );
                     graphics2D.drawString( ((DrawText)nextDrawableObject).returnText(),nextDrawableObject.getX(),nextDrawableObject.getY() );
                 }
 
@@ -129,16 +135,24 @@ public class Canvas extends JPanel implements KeyListener {
 
 
     public void drawText(String text,int x,int y){
-        queue.add(new DrawText(x,y,text));
+        queue.add(new DrawText(x,y,text,12));
+    }
+
+    public void drawText(String text,int x,int y, int fontSize){
+	    queue.add(new DrawText(x,y,text,fontSize));
     }
 
     public void drawImage(int x,int y, String imageName){
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(new File(imageName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedImage image = imageMap.get(imageName);
+
+        if (image == null){
+			try {
+				image = ImageIO.read(new File(imageName));
+				imageMap.put(imageName,image);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
         queue.add(new DrawImage(x,y,image));
     }
 
@@ -207,6 +221,7 @@ public class Canvas extends JPanel implements KeyListener {
         }
     }
 
+
     public class DrawImage extends DrawObject{
 
         private BufferedImage image;
@@ -225,16 +240,22 @@ public class Canvas extends JPanel implements KeyListener {
 
     public class DrawText extends  DrawObject{
 
-        private String text;
+	        private String text;
+	        private Font font;
 
-        public DrawText(int x, int y,String text) {
-            super(x, y);
-            this.text=text;
-        }
+	        public DrawText(int x, int y,String text, int fontSize) {
+	            super(x, y);
+	            this.text=text;
+	            font = new Font("TIMES NEW ROMAN",Font.BOLD,fontSize);
+	        }
 
-        public String returnText(){
-            return text;
-        }
+	        public String returnText(){
+	            return text;
+	        }
+
+	        public Font returnFont(){
+				return font;
+	        }
     }
 
     public class DrawOval extends DrawObject{
