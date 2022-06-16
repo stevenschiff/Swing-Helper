@@ -194,7 +194,7 @@ public class Canvas extends JPanel implements KeyListener {
     }
 
     public class AudioManager {
-        private String audioPath = "src/";
+        private String audioPath = "/";
         protected final HashMap<String, Clip> audio;
 
         public AudioManager() {
@@ -232,7 +232,7 @@ public class Canvas extends JPanel implements KeyListener {
 
         /**
          * @param path path of audio file located in {@link AudioManager#AUDIO_PATH}
-         * @return Mediaplayer JavaFX Object
+         * @return {@link javax.sound.sampled.Clip} audio Object
          */
         private Clip getMediaPlayer(String path) {
             try {
@@ -250,7 +250,6 @@ public class Canvas extends JPanel implements KeyListener {
             }
         }
     }
-    
 
     //Classes for DrawObjects
     public class DrawObject{
@@ -269,8 +268,13 @@ public class Canvas extends JPanel implements KeyListener {
         }
     }
 
-    public class DrawColor extends DrawObject{
+    public class GabeObject extends DrawObject {
+        public GabeObject(int x, int y) {
+            super(x, y);
+        }
+    }
 
+    public class DrawColor extends DrawObject{
         Color color;
 
         public DrawColor(int x, int y) {
@@ -324,7 +328,7 @@ public class Canvas extends JPanel implements KeyListener {
 	        }
     }
 
-    public class DrawOval extends DrawObject{
+    public class DrawOval extends GabeObject{
 
         private int width;
         private int height;
@@ -347,7 +351,7 @@ public class Canvas extends JPanel implements KeyListener {
         public boolean isFilled(){return fill;}
     }
 
-    public class DrawRect extends  DrawObject{
+    public class DrawRect extends GabeObject {
 
         private int width;
         private int height;
