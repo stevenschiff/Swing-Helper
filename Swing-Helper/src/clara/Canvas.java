@@ -224,6 +224,7 @@ public class Canvas extends JPanel implements KeyListener {
          * @return boolean value indicating whether operation was a success. 
          */
         public boolean load(String key, String path) {
+            if (this.audio.get(key) != null) return true; 
             Clip clip = this.getMediaPlayer(path);
             if (clip != null) this.audio.put(key, clip);
             return clip != null;
