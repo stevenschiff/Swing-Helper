@@ -6,7 +6,7 @@ public class Audio {
     public static void main(String[] args) {
         Canvas c = new Canvas(500, 500);
 
-        // Set custom audio path for all new audio files loaded. Defaults to src/
+        // Set custom audio path for all new audio files loaded. Defaults to /
         c.getAudioManager().setAudioPath("src/assets/audio");
 
         // Load game.wav audio file
