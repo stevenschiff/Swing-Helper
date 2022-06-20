@@ -32,7 +32,7 @@ public class ShooterExample{
       //DISPLAY STARTING DIRECTIONS
       canvas.drawColor(Color.BLUE);
 	  canvas.drawText("You Are the Blue Ball",10,40);
-	  canvas.drawText("Change Diections with W,A,S,Z",10,60);
+	  canvas.drawText("Change Diections with W,A,S,D",10,60);
 	  canvas.drawText("Shoot the Red Balls and don't let them hit you",10,80);
 	  canvas.drawText("Get your best score in 60 seconds",10,120);
      canvas.repaint();  // refresh display
@@ -104,17 +104,17 @@ public class ShooterExample{
 
 		// change motion based on keyboard
 		//System.out.println(canvas.returnKey());
-		if (canvas.returnKey().equalsIgnoreCase("w"))
+		if (canvas.containsKey("w"))
 			ballY += -ballYInc;
-		if (canvas.returnKey().equalsIgnoreCase("z"))
+		if (canvas.containsKey("s"))
 			ballY += ballYInc;
-		if (canvas.returnKey().equalsIgnoreCase("a"))
+		if (canvas.containsKey("a"))
 			ballX += -ballXInc;
-		if (canvas.returnKey().equalsIgnoreCase("s"))
+		if (canvas.containsKey("d"))
 			ballX += ballXInc;
 
       // Handle blaster fire
-		if (canvas.returnKey().equalsIgnoreCase(" ")  &&  (time - fireTimer) >= 0.2){  // Space bar and ready to fire
+		if (canvas.containsKey(" ")  &&  (time - fireTimer) >= 0.2){  // Space bar and ready to fire
 			int i = 0;
 			while ( i < bX.length && bX[i] > 0)  // find place in array for bullet
            	 	i++;

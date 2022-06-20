@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
@@ -30,13 +31,14 @@ public class Canvas extends JPanel implements KeyListener {
 
     Queue<DrawObject> queue;
     Stack<RotationObject> stack;
-    private  String key="";
+    private ArrayList<String> keys;
     private AudioManager audioManager;
     private HashMap<String,BufferedImage> imageMap;
 
     public Canvas(int xSize,int ySize){
         super(true);
         System.out.println("Hi");
+        keys = new ArrayList<String>();
         queue=new LinkedList<>();
         audioManager = new AudioManager();
         stack=new Stack<>();
@@ -171,8 +173,13 @@ public class Canvas extends JPanel implements KeyListener {
         queue.add(new Rotation(rotation,x,y));
     }
 
-    public String returnKey(){
-        return key;
+    public String[] returnKeys(){
+        return (String[])keys.toArray();
+    }
+
+    public boolean containsKey(String key)
+    {
+        return keys.contains(key);
     }
 
     public void reset(){
@@ -185,12 +192,14 @@ public class Canvas extends JPanel implements KeyListener {
     }
     @Override
     public void keyPressed(KeyEvent e) {
-        key=String.valueOf(e.getKeyChar());
+        String value= String.valueOf(e.getKeyChar());
+        if (!keys.contains(value))
+            keys.add(value);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        key="";
+        keys.remove(String.valueOf(e.getKeyChar()));
     }
 
     public class AudioManager {
