@@ -10,7 +10,7 @@ public class Audio {
         c.getAudioManager().setAudioPath("src/assets/audio");
 
         // Load game.wav audio file
-        c.getAudioManager().load("bg", "/game.wav");
+        c.getAudioManager().load("bg", "game.wav");
 
         while (true) {
             // Get audio file by key and use start method to play audio 

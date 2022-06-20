@@ -240,7 +240,7 @@ public class Canvas extends JPanel implements KeyListener {
         }
 
         /**
-         * @param path path of audio file located in {@link AudioManager#AUDIO_PATH}
+         * @param path path of audio file located in {@link AudioManager#audioPath}
          * @return {@link javax.sound.sampled.Clip} audio Object
          */
         private Clip getMediaPlayer(String path) {
