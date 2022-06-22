@@ -66,11 +66,23 @@ fill – determines if the rectangle will be filled with the current specified c
 **public void drawText(String text, int x, int y)**
 
 Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
+The default font size is 12 (or you can use the overloaded version to specify)
 
 Parameters:<br />
 text - the text to display on the screen<br />
 x – x position of the rectangle<br />
 y – y position of the rectangle<br />
+
+**public void drawText(String text, int x, int y, int size)**
+
+Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y and font size when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
+
+Parameters:<br />
+text - the text to display on the screen<br />
+x – x position of the rectangle<br />
+y – y position of the rectangle<br />
+size - size of font in printed text<br />
+
 
 
 

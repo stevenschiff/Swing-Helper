@@ -31,9 +31,10 @@ public class Canvas extends JPanel implements KeyListener {
 
     Queue<DrawObject> queue;
     Stack<RotationObject> stack;
-    private ArrayList<String> keys;
+
     private AudioManager audioManager;
     private HashMap<String,BufferedImage> imageMap;
+    private  String key="";
 
     public Canvas(int xSize,int ySize){
         super(true);
@@ -104,7 +105,6 @@ public class Canvas extends JPanel implements KeyListener {
             if (nextDrawableObject instanceof DrawColor){
                 graphics2D.setColor(((DrawColor) nextDrawableObject).getColor());
             }
-
             //Change the text
             if (nextDrawableObject instanceof DrawText){
                 graphics2D.setFont( ((DrawText)nextDrawableObject).returnFont() );
