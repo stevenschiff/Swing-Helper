@@ -1,6 +1,6 @@
 //For my children, Clara and Gabe, who inspire me to never give up.
 //Canvas Library - Assistive Representation Architecture (Clara)
-
+// https://github.com/stevenschiff/Swing-Helper
 package clara;
 
 import java.awt.Color;
@@ -14,7 +14,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
 import javax.imageio.ImageIO;
@@ -29,13 +28,11 @@ public class Canvas extends JPanel implements KeyListener {
     Stack<RotationObject> stack;
     private String key = "";
     private String keyString = "";
-    private HashMap<String, BufferedImage> imageMap;
 
     public Canvas(int xSize, int ySize) {
         super(true);
         queue = new LinkedList<>();
         stack = new Stack<>();
-        imageMap = new HashMap<String, BufferedImage>();
         setFocusable(true);
         JFrame frame = new JFrame("Canvas");
         frame.setSize(xSize, ySize);
@@ -148,16 +145,12 @@ public class Canvas extends JPanel implements KeyListener {
     }
 
     public void drawImage(int x, int y, String imageName) {
-        BufferedImage image = imageMap.get(imageName);
-
-        if (image == null) {
+        BufferedImage image = null;
             try {
                 image = ImageIO.read(new File(imageName));
-                imageMap.put(imageName, image);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
         queue.add(new DrawImage(x, y, image));
     }
 
@@ -285,6 +278,7 @@ public class Canvas extends JPanel implements KeyListener {
         public BufferedImage getImageName() {
             return image;
         }
+
     }
 
     public class DrawText extends DrawObject {
