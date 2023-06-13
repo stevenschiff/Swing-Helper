@@ -39,19 +39,19 @@ The reset method can be used to take all of the rotation commands that have been
 ## **Class Constants**
 ### **To allow the user to use the arrow keys, four arrow key constants have been used**
 
-**static final String UP_ARROW**
+**static final String UP_ARROW**<br />
 A string to represent the up arrow key
 
-**static final String RIGHT_ARROW**
+**static final String RIGHT_ARROW**<br />
 A string to represent the right arrow key
 
-**static final String DOWN_ARROW**
+**static final String DOWN_ARROW**<br />
 A string to represent the down arrow key
 
-**static final String LEFT_ARROW**
+**static final String LEFT_ARROW**<br />
 A string to represent the left arrow key
 
-### **SAMPLE USE**
+### **Sample Use**
 ```
 canvas.returnKey().equals(Canvas.RIGHT_ARROW);
 canvas.returnKeyString().contains(Canvas.DOWN_ARROW);
