@@ -36,6 +36,27 @@ The main idea is that when you create a Canvas in the runner class you can call 
 
 The reset method can be used to take all of the rotation commands that have been run and reverse them via the stack.  This only needs to be done if you want to reset the rotation before you repaint the screen.  After you repaint the screen the rotations will all be lost and everything will revert to the original rotation.  The natural functionality of the stack will allow these commands to be run in the reverse order that they were entered which is needed since the rotations will all compound on top of each other. 
 
+## **Class Constants**
+### **To allow the user to use the arrow keys, four arrow key constants have been used**
+
+**static final String UP_ARROW**<br />
+A string to represent the up arrow key
+
+**static final String RIGHT_ARROW**<br />
+A string to represent the right arrow key
+
+**static final String DOWN_ARROW**<br />
+A string to represent the down arrow key
+
+**static final String LEFT_ARROW**<br />
+A string to represent the left arrow key
+
+### **Sample Use**
+```
+canvas.returnKey().equals(Canvas.RIGHT_ARROW);
+canvas.returnKeyString().contains(Canvas.DOWN_ARROW);
+```
+
 ## **Method Descriptions**
 
 
@@ -65,13 +86,23 @@ fill – determines if the rectangle will be filled with the current specified c
 
 **public void drawText(String text, int x, int y)**
 
-Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object.
+Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object. Will use default font size of 12. 
 
 Parameters:<br />
 text - the text to display on the screen<br />
 x – x position of the rectangle<br />
 y – y position of the rectangle<br />
 
+
+**public void drawText(String text, int x, int y, int fontSize)**
+
+Adds a text object to the drawing queue that will be drawn to the screen at coordinates x,y when repaint is called.  Coordinates provided will specify the top left corner of the drawn object. Will use specified font size.
+
+Parameters:<br />
+text - the text to display on the screen<br />
+x – x position of the rectangle<br />
+y – y position of the rectangle<br />
+fontSize - font size of the text
 
 
 **public void drawColor(Color color)**
@@ -105,6 +136,16 @@ Returns:<br />
 A string that represents the key pressed
 
 
+**publiic String returnKeyString()**
+
+Returns all keys pressed in the current frame being drawn on the screen. This can be used to detect multiple key presses at the same time through the String.contains() method.
+
+Paramenter:<br />
+none
+
+Returns:<br />
+A String that represents the keys pressed
+
 
 **public void reset()**
 
@@ -117,4 +158,3 @@ none
 
 ## **How to contribute**
 This code base can certainly be optimized, and more features can be added.  Feel free to make changes or improvements.  Please rebuild the jar file when you make changes, so any teachers or students that download the project have access to it.  Keep in mind that this project is intended for use by students, so please make sure it is easy and straight forward to use.  Please do not change the package structure or dedication :)
-
